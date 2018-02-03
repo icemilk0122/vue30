@@ -13,3 +13,18 @@ new Vue({
   components: { App },
   template: '<App/>',
 });
+
+new Vue({
+  el: '#text',
+  data: {
+    msg: 'this is text',
+  },
+});
+
+new Vue({
+  el: '#input',
+  data: {
+    message: 'this is input',
+  },
+});
+

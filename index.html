@@ -7,6 +7,12 @@
   </head>
   <body>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div id="text">
+      <span v-text="msg"></span>
+    </div>
+    <div id="input">
+      <input type="text" v-model="message">
+      <div>{{ message }}</div>
+    </div>
   </body>
 </html>
