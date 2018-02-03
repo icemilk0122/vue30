@@ -24,7 +24,56 @@ new Vue({
 new Vue({
   el: '#input',
   data: {
-    message: 'this is input',
+    message: '',
+  },
+});
+
+new Vue({
+  el: '#textarea',
+  data: {
+      message: 'this is textarea'
+  }
+});
+
+new Vue({
+  el: '#radio',
+  data: {
+      selected: 'Please choose any items.'
+  }
+});
+
+new Vue({
+  el: '#checkbox',
+  data: {
+      selected_group: []
+  }
+});
+
+new Vue({
+  el: '#select',
+  data: {
+      selected: null
+  }
+});
+
+new Vue({
+  el: '#input-lazy',
+  data: {
+    message: 'this is lazy',
+  },
+});
+
+new Vue({
+  el: '#input-number',
+  data: {
+    message: '12345',
+  },
+});
+
+new Vue({
+  el: '#input-trim',
+  data: {
+    message: 'this is trim',
   },
 });
 

@@ -10,8 +10,52 @@
     <div id="text">
       <span v-text="msg"></span>
     </div>
+    <h1>input</h1>
     <div id="input">
       <input type="text" v-model="message">
+      <div>{{ message }}</div>
+    </div>
+    <h1>textarea</h1>
+    <div id="textarea">
+        <textarea v-model="message"></textarea>
+        <div>{{ message }}</div>
+    </div>
+    <h1>radio</h1>
+    <div id="radio">
+        <input type="radio" v-model="selected" value="Item1"><label>Item1</label>
+        <input type="radio" v-model="selected" value="Item2"><label>Item2</label>
+        <input type="radio" v-model="selected" value="Item3"><label>Item3</label>
+        <div>selected = {{ selected }}</div>
+    </div>
+    <h1>checkbox</h1>
+    <div id="checkbox">
+        <input type="checkbox" v-model="selected_group" value="Item1"><label>Item1</label>
+        <input type="checkbox" v-model="selected_group" value="Item2"><label>Item2</label>
+        <input type="checkbox" v-model="selected_group" value="Item3"><label>Item3</label>
+        <div>selected_group = {{ selected_group }}</div>
+    </div>
+    <h1>select</h1>
+    <div id="select">
+        <select v-model="selected">
+            <option>Item1</option>
+            <option>Item2</option>
+            <option value="Item3_value">Item3</option>
+        </select>
+        <div>selected = {{ selected }}</div>
+    </div>
+    <h1>lazy</h1>
+    <div id="input-lazy">
+      <input type="text" v-model.lazy="message">
+      <div>{{ message }}</div>
+    </div>
+    <h1>number</h1>
+    <div id="input-number">
+      <input type="text" v-model.number="message">
+      <div>{{ message }}</div>
+    </div>
+    <h1>trim</h1>
+    <div id="input-trim">
+      <input type="text" v-model.trim="message">
       <div>{{ message }}</div>
     </div>
   </body>

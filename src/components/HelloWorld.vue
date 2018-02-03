@@ -1,8 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <input type="text" v-model="message">
-    <div>{{ message }}</div>
   </div>
 </template>
 
@@ -12,7 +10,6 @@ export default {
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
-      message: 'hi',
     };
   },
 };
