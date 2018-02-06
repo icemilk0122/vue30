@@ -9,71 +9,29 @@ Vue.config.productionTip = false;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
-  components: { App },
-  template: '<App/>',
-});
-
-new Vue({
-  el: '#text',
   data: {
-    msg: 'this is text',
+    url: 'http://www.google.com/',
+    hint: '連到google網站'
   },
 });
 
 new Vue({
-  el: '#input',
+  el: '#app2',
   data: {
-    message: '',
-  },
-});
-
-new Vue({
-  el: '#textarea',
-  data: {
-      message: 'this is textarea'
+    classObject: {
+      active: true,
+      hasError: true
+    }
   }
 });
 
-new Vue({
-  el: '#radio',
+var vm = new Vue({
+  el: '#app3',
   data: {
-      selected: 'Please choose any items.'
+    styleObject: {
+      color: '#ff0000',
+      fontSize: '20px'
+    }
   }
-});
-
-new Vue({
-  el: '#checkbox',
-  data: {
-      selected_group: []
-  }
-});
-
-new Vue({
-  el: '#select',
-  data: {
-      selected: null
-  }
-});
-
-new Vue({
-  el: '#input-lazy',
-  data: {
-    message: 'this is lazy',
-  },
-});
-
-new Vue({
-  el: '#input-number',
-  data: {
-    message: '12345',
-  },
-});
-
-new Vue({
-  el: '#input-trim',
-  data: {
-    message: 'this is trim',
-  },
 });
 
