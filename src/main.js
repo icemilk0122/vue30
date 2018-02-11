@@ -7,31 +7,36 @@ import router from './router';
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
-new Vue({
+var vm = new Vue({
   el: '#app',
   data: {
-    url: 'http://www.google.com/',
-    hint: '連到google網站'
+       count1: 0,
+       count2: 0
   },
-});
-
-new Vue({
-  el: '#app2',
-  data: {
-    classObject: {
-      active: true,
-      hasError: true
-    }
+  methods: {
+      thirdFunction () {
+          alert('thirdFunction() is called.');
+      },
+      secondFunction () {
+          alert('secondFunction() is called.');
+      },
+      firstFunction () {
+          alert('firstFunction() is called.');
+      },
+      addCount1 () {
+          this.count1 += 1;
+      },
+      addCount2 () {
+          this.count2 += 1;
+      }
   }
 });
-
-var vm = new Vue({
-  el: '#app3',
-  data: {
-    styleObject: {
-      color: '#ff0000',
-      fontSize: '20px'
-    }
+var vm2 = new Vue({
+  el: '#app2',
+  methods: {
+      testFunction () {
+          alert('Hello!');
+      }
   }
 });
 
