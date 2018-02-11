@@ -7,90 +7,24 @@
   </head>
   <body>
     <div id="app">
-      <!-- No modifiers -->
-      <div @click="firstFunction()">
-          <div @click="secondFunction()">
-              <p>
-                  沒有修飾符：
-                  <button @click="thirdFunction()">點我</button>
-              </p>
-          </div>
-      </div>
-      
-      <!-- Add .stop modifiers -->
-      <div @click="firstFunction()">
-          <div @click="secondFunction()">
-              <p>
-                  加入.stop修飾符：
-                  <button @click.stop="thirdFunction()">點我</button>
-              </p>
-          </div>
-      </div>
-      
-      <!-- Add .prevent modifiers -->
-      <div>
-          <form method="POST">
-              <span>瀏覽器預設行為會跳轉頁面：</span>
-              <input type="text" placeholder="input something">
-              <button>Submit</button>
-          </form>
-          <form method="POST">
-              <span>加入.prevent修飾符：</span>
-              <input type="text" placeholder="input something">
-              <button @click.prevent>Submit</button>
-          </form>
-      </div>
-      
-      <!-- Add .capture modifiers -->
-      <div @click.capture="firstFunction()">
-          <div @click.capture="secondFunction()">
-              <p>
-                  加入.capture修飾符：
-                  <button @click.capture="thirdFunction()">點我</button>
-              </p>
-          </div>
-      </div>
-      
-      <!-- Add .self modifiers -->
-      <div class="outerDiv" @click.self="firstFunction()">
-          <div class="middleDiv" @click.self="secondFunction()">
-              <p>
-                  加入.self修飾符：
-                  <button @click="thirdFunction()">點我</button>
-              </p>
-          </div>
-      </div>
-      
-      <!-- Add .once modifiers -->
-      <div>
-          <p>
-              正常執行計數function：
-              <button @click="addCount1()">點我+1</button> {{ count1 }}
-               
-              加入.once修飾符：
-              <button @click.once="addCount2()">點我+1</button> {{ count2 }}
-          </p>
-      </div>
+        <ul>
+            <li v-for="(member, index) in memberArray" :key="member.id">
+                index: {{ index }} ,
+                id: {{ member.id }} ,
+                name: {{ member.name }}
+            </li>
+        </ul>
     </div>
     <div id="app2">
-        <p>
-            按滑鼠左鍵才有反應：
-            <button @click.left="testFunction()">點我</button>
-        </p>
-        <p>
-            按滑鼠右鍵才有反應：
-            <button @click.right="testFunction()">點我</button>
-        </p>
-        <p>
-            <!-- run的時候要去點一下按鈕 -->
-            別名 - 按鍵盤space才有反應：
-            <button @keyup.space="testFunction()">點我</button>
-        </p>
-        <p>
-            <!-- run的時候要去點一下按鈕 -->
-            代碼 - 按鍵盤enter才有反應：
-            <button @keyup.13="testFunction()">點我</button>
-        </p>
+        <ul>
+            <li v-for="(member, key, index) in memberObject">
+                {{ index }} . {{ key }} : {{ member }}
+            </li>
+        </ul>
+    </div>
+    <div id="app3">
+        <li v-for="n in evenNumbers">{{ n }}</li>
+        <li v-for="n in even(numbers)">{{ n }}</li>
     </div>
   </body>
 </html>
