@@ -7,24 +7,18 @@
   </head>
   <body>
     <div id="app">
-        <ul>
-            <li v-for="(member, index) in memberArray" :key="member.id">
-                index: {{ index }} ,
-                id: {{ member.id }} ,
-                name: {{ member.name }}
-            </li>
-        </ul>
+        <p v-if="isShow">{{ message }}</p>
     </div>
     <div id="app2">
-        <ul>
-            <li v-for="(member, key, index) in memberObject">
-                {{ index }} . {{ key }} : {{ member }}
-            </li>
-        </ul>
+        <div v-if="type === 'A'">A</div>
+        <div v-else-if="type === 'B'">B</div>
+        <div v-else-if="type === 'C'">C</div>
+        <div v-else>Not A/B/C</div>
     </div>
     <div id="app3">
-        <li v-for="n in evenNumbers">{{ n }}</li>
-        <li v-for="n in even(numbers)">{{ n }}</li>
+        <ul>
+            <li v-if="n <= 5" v-for="n in 10">{{ n }}</li>
+        </ul>
     </div>
   </body>
 </html>
