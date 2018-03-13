@@ -10,13 +10,26 @@ Vue.config.productionTip = false;
 var vm = new Vue({
   el: '#app',
   data: {
-    text: 'hello vue',
-    mytext: 'hello'
+    g: 0,
+    kg: 0,
+    t: 0
   },
-  filters: {
-      toUpperCase(value) {
-          return value.toUpperCase();
-      }
+  watch: {
+    g: function(value) {
+      this.g = value;
+      this.kg = value / 1000;
+      this.t = value / 1000 / 1000;
+    },
+    kg: function(value) {
+      this.g = value * 1000;
+      this.kg = value;
+      this.t = value / 1000;
+    },
+    t: function(value) {
+      this.g = value * 1000 * 1000;
+      this.kg = value * 1000;
+      this.t = value;
+    }
   }
 }); 
 //全域filters
