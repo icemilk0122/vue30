@@ -10,22 +10,20 @@ Vue.config.productionTip = false;
 var vm = new Vue({
   el: '#app',
   data: {
-      message: 'This is example of v-if',
-      isShow: true
+    message: 'Hello!'
   }
 });
-// 每2秒改變isShow的布林值
-setInterval(function() {
-  vm.isShow = !vm.isShow;
-}, 2000)
 
 var vm2 = new Vue({
   el: '#app2',
   data: {
-      type: 'B'
+    message: 'dala!'
   }
 });
 
 var vm3 = new Vue ({
-  el: '#app3'
+  el: '#app3',
+  data: {
+    message: 'hahahahaha!'
+  }
 });

@@ -4,20 +4,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>vue30</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
   </head>
   <body>
+    <!-- v-pre 略過compiler-->
     <div id="app">
-        <p v-if="isShow">{{ message }}</p>
+        <p>{{ message }}</p>
+        <p v-pre>{{ message }}</p>
     </div>
+    <!-- v-cloak 屬性會持續到render完成後消失-->
     <div id="app2">
-        <div v-if="type === 'A'">A</div>
-        <div v-else-if="type === 'B'">B</div>
-        <div v-else-if="type === 'C'">C</div>
-        <div v-else>Not A/B/C</div>
+        <div id="app" v-cloak>
+            {{ message }}
+        </div>
     </div>
+    <!-- v-once 編譯完一次後變成靜態內容 -->
     <div id="app3">
+        <!-- 單個元素 -->
+        <span v-once>{{ message }}</span>
+
+        <!-- 含子元素 -->
+        <div v-once>
+            <h1>Title</h1>
+            <p>{{ message }}</p>
+        </div>
+
+        <!-- 元件 -->
+        <!-- my-component v-once :comment="message"></my-component-->
+
+        <!-- 跟v-for一起使用 -->
         <ul>
-            <li v-if="n <= 5" v-for="n in 10">{{ n }}</li>
+            <li v-for="i in 10" v-once>{{ i }}</li>
         </ul>
     </div>
   </body>
