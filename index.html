@@ -11,20 +11,11 @@
     </style>
   </head>
   <body>
-    <h3>filters</h3>
-    <div id="app" :name="text | toUpperCase">
-        <p>{{ text | toUpperCase }}</p>
-        <input type="text" v-model="mytext">
-        <p>{{ mytext | capitalize }}</p>
-    </div>
-    <h3>computed</h3>
-    <div id="app2">
-        <p>原始訊息：{{ message }}</p>
-        <p>反轉訊息：{{ reverseMessage }}</p>
-    </div>
-    <div id="app3">
-        <p>原始內容：{{ content }}</p>
-        <p>文章摘要：{{ summary }}</p>
+    <h3>watch</h3>
+    <div id="app">
+        <p>g(公克)：<input type="text" v-model="g"></p>
+        <p>kg(公斤)：<input type="text" v-model="kg"></p>
+        <p>t(公噸)：<input type="text" v-model="t"></p>
     </div>
   </body>
 </html>
