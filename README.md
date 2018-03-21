@@ -1,6 +1,6 @@
 # vue30
 
-> A Vue.js project
+> A Vue.js practice from [Vue.js 30天隨身包](https://ithelp.ithome.com.tw/users/20107673/ironman/1470)
 
 ## Build Setup
 
