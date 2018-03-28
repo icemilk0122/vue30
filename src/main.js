@@ -4,36 +4,81 @@ import Vue from 'vue';
 
 Vue.config.productionTip = false;
 
-Vue.component('global-component', {
-  template: '<div><p>{{ message }}</p><button @click="notice">點我</button></div>',
-  data: () => {
-    return {
-      message: '這是全域註冊的元件',
+Vue.component('child', {
+  props: ['myMessage'],
+  template: '<p>{{ myMessage }}</p>'
+})
+
+var vm = new Vue ({
+  el: '#app',
+  data: {
+      message: 'HelloWorld'
+  }
+})
+
+
+Vue.component('my-profile', {
+  props: {
+    // 指定資料型態為數值
+    id: Number,
+    
+    // 指定多種資料型態
+    password: [String, Number],
+    
+    // 指定為字串型態，且為必要屬性
+    name: {
+      type: String,
+      required: true
+    },
+    
+    // 指定為數值型態，且有預設值
+    age: {
+      type: Number,
+      default: 0,
+      validator: function (value) {
+        return value >= 0
+      }
+    },
+    
+    // 指定為陣列型態，且有預設值，
+    // 物件或陣列的資料型態其預設值由函數回傳值
+    skills: {
+      type: Array,
+      default: function(){
+       return ['nothing']
+      }
     }
   },
+  
+  template: '<p>id: {{ id }} <br> password: {{ password }} <br> age: {{ age }} <br> skills: {{ skills }}</p>'
+})
+
+new Vue({
+  el: '#app2'
+})
+
+
+//roll
+Vue.component('dice-button', {
+  template: '<button @click="rollChild">Roll</button>',
   methods: {
-    notice: () => {
-      alert('全域註冊的元件裡面也可以寫methods!');
+    rollChild: function(){
+      // 取 1~6 的亂數
+      var value = Math.floor(Math.random() * 6) + 1;
+      // 觸發父元件的事件（如果有的話），並附上值
+      this.$emit('roll', value)
     }
   }
 })
 
-let local_component = {
-  template: '<div><p>{{ message }}</p><button @click="notice">點我</button></div>',
-  data: () => {
-    return {
-      message: '這是局部註冊的元件'
-    }
+new Vue({
+  el: '#app3',
+  data: {
+    value: 1
   },
   methods: {
-    notice: () => {
-      alert('Local Component!');
+    showResult: function (v) {
+      this.value = Number(v)
     }
-  },
-}
-
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  components: { local_component }
-});
+  }
+})

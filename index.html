@@ -6,9 +6,19 @@
     <title>vue30</title>
   </head>
   <body>
+    <!-- prop -->
     <div id="app">
-      <global-component></global-component>
-      <local_component></local_component>
+      <input type="text" v-model="message">
+      <child :my-message="message"></child>
+    </div>
+    <div id="app2">
+      <!-- prop如果非字串要用v-bind -->
+      <my-profile :id="1" password="ab12" name="Tony" :age="6" :skills="['html','css']"></my-profile>
+    </div>
+    <!-- @on @emit -->
+    <div id="app3">
+      <dice-button @roll="showResult"></dice-button>
+      <p>Result: {{ value }}</p>
     </div>
   </body>
 </html>
