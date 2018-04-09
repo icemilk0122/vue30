@@ -4,38 +4,27 @@ import Vue from 'vue';
 
 Vue.config.productionTip = false;
 
-Vue.component('def-child', {
-  template: '<span><slot>This is a default single slot.</slot></span>'
-})
-
 new Vue ({
-  el: '#app'
-})
-
-Vue.component('container', {
-  template: `<div>
-                <header>
-                    <slot name="header"></slot>
-                </header>
-                <main>
-                    <slot></slot>
-                </main>
-                <footer>
-                    <slot name="footer"></slot>
-                </footer>
-             </div>`
-})
-
-new Vue ({
-  el: '#app2'
-})
-
-Vue.component('child', {
-  template: `<div>
-                <slot text="This is a text from slot."></slot>	
-            <div>`
-})
-
-new Vue ({
-  el: '#app3'
+  el: '#app',
+  data: {
+      currentView: 'home'
+  },
+  methods: {
+      changeTab: function(v) {
+          this.currentView = v
+      }
+  },
+  components: {
+      home: {
+          template: '<div>This is Home page.\
+          <p><input type="text" placeholder="Type your name here..."></p>\
+          </div>'
+      },
+      about: {
+          template: '<div>This is About page.</div>'
+      },
+      contact: {
+          template: '<div>This is Contact page.</div>'
+      }
+  }
 })

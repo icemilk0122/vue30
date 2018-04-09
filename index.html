@@ -6,24 +6,17 @@
     <title>vue30</title>
   </head>
   <body>
-    <!-- prop -->
     <div id="app">
-      <p>當父元件有指定資料時：<def-child>HELLO WORLD</def-child></p>
-      <p>當父元件沒有指定資料時：<def-child></def-child></p>
-    </div>
-    <div id="app2">
-      <container>
-        <p slot="header">Header</p>
-        <p>Main Content</p>
-        <p slot="footer">Footer</p>
-      </container>
-    </div>
-    <div id="app3">
-      <child>
-        <template scope="props">
-          <p>{{ props.text }}</p>
-        </template>
-      </child>
+      <ul class="navbar">
+        <li><a href="#" @click="changeTab('home')">Home</a></li>
+        <li><a href="#" @click="changeTab('about')">About</a></li>
+        <li><a href="#" @click="changeTab('contact')">Contact</a></li>
+      </ul>
+      <hr>
+      <component :is="currentView"></component>
+      <keep-alive>
+        <component :is="currentView"></component>
+      </keep-alive>
     </div>
   </body>
 </html>
