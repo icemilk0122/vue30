@@ -8,17 +8,22 @@
   <body>
     <!-- prop -->
     <div id="app">
-      <input type="text" v-model="message">
-      <child :my-message="message"></child>
+      <p>當父元件有指定資料時：<def-child>HELLO WORLD</def-child></p>
+      <p>當父元件沒有指定資料時：<def-child></def-child></p>
     </div>
     <div id="app2">
-      <!-- prop如果非字串要用v-bind -->
-      <my-profile :id="1" password="ab12" name="Tony" :age="6" :skills="['html','css']"></my-profile>
+      <container>
+        <p slot="header">Header</p>
+        <p>Main Content</p>
+        <p slot="footer">Footer</p>
+      </container>
     </div>
-    <!-- @on @emit -->
     <div id="app3">
-      <dice-button @roll="showResult"></dice-button>
-      <p>Result: {{ value }}</p>
+      <child>
+        <template scope="props">
+          <p>{{ props.text }}</p>
+        </template>
+      </child>
     </div>
   </body>
 </html>
